@@ -1,0 +1,15 @@
+#!/bin/bash
+
+echo "Enter password"
+read trythis
+
+#和while相反，条件为假，进入循环
+until [ "$trythis" == "secret" ]
+do
+  echo "Sorry, try again"
+  read trythis
+done
+
+echo "Enter pass"
+
+exit 0

@@ -1,0 +1,20 @@
+#!/bin/bash
+
+echo "Enter password"
+read trythis
+
+#条件为真，进入循环
+while [ "$trythis" != "secret" ]
+do
+  echo "Sorry, try again"
+  read trythis
+done
+
+foo=1
+while [ "$foo" -le 10 ]
+do
+  echo $foo
+  foo=$(($foo+1))#$((...))用法见expr脚本
+done
+
+exit 0

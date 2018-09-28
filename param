@@ -1,0 +1,30 @@
+#!/bin/bash
+
+#参数扩展
+for i in 1 2
+do 
+	echo ${i}_tmp
+done
+
+unset foo
+echo ${foo:-bar} 
+#${foo:-bar}如果foo为空，返回bar，foo没有赋值
+#${foo:=bar}如果foo为空，返回bar，foo赋值
+#${foo:?bar}如果foo为空，返回bar，异常终止脚本程序
+#${foo:+bar}如果fooc存在且不为空，返回bar，foo没有赋值
+echo $foo
+
+foo=fud
+echo ${foo:-bar}
+
+foo=/usr/bin/X11/startx
+echo ${foo#*/}
+#从变量foo的头部开始删除与*/匹配的最短部分，然后返回剩余部分
+echo ${foo##*/}
+#从变量foo的头部开始删除与*/匹配的最长部分，然后返回剩余部分
+
+bar=/usr/local/etc/local/networks
+echo ${bar%local*}
+#从变量foo的尾部开始删除与*/匹配的最短部分，然后返回剩余部分
+echo ${bar%%local*}
+#从变量foo的尾部开始删除与*/匹配的最长部分，然后返回剩余部分

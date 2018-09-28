@@ -1,0 +1,54 @@
+#!/bin/bash
+
+echo "Is it morning? Please answer yes or no"
+read timeofday
+
+case "$timeofday" in
+	yes) echo "Good Morning";;
+	no)  echo "Good Afternoon";;
+	y)   echo "Good Morning";;
+	n)   echo "Good Afternoon";;
+	*)   echo "Sorry, anser not recognized";;#类似于default
+esac
+#case反着写
+
+#升级版1
+case "$timeofday" in
+	yes | Yes | YES | y | Y ) echo "Good Morning";;
+	n* | N*)  echo "Good Afternoon";;
+	*)   echo "Sorry, anser not recognized";;
+esac
+
+#升级版2
+case "$timeofday" in
+	yes | Yes | YES | y | Y )
+		echo "Good Morning"
+        echo "Up bright and early this morning?"
+		;;
+	[nN]* )  
+		echo "Good Afternoon"
+		;;
+	*)   
+	   echo "Sorry, answer not recognised"
+	   echo "Please answer yes or no"
+	   exit 1
+	   ;;
+esac
+
+#升级版3
+case "$timeofday" in
+	[yY] | [yY][eE][sS] )
+		echo "Good Morning"
+        echo "Up bright and early this morning?"
+		;;
+	[nN]* )  
+		echo "Good Afternoon"
+		;;
+	*)   
+	   echo "Sorry, answer not recognised"
+	   echo "Please answer yes or no"
+	   exit 1
+	   ;;
+esac
+
+exit 0

@@ -1,0 +1,53 @@
+#!/bin/bash
+
+#test和[后面需要流出空格
+if test -f first 
+then
+	echo "first exist!"
+fi
+
+#或者写成
+if [ -f first ]
+then
+	echo "first really exist!"
+fi
+
+# 3类条件类型
+# 1. 字符串比较			结果
+# string1 = string2		相同为真
+# string1 != string2	不同为真
+# -n string				不空为真
+# -z string				为空为真
+
+# 2. 算术比较					结果
+# express1 -eq express2			相等为真
+# express1 -ne express2			不等为真
+# express1 -gt express2			大于为真
+# express1 -ge express2			大于等于为真
+# express1 -lt express2			小于为真
+# express1 -le express2			小于等于为真
+# ! express						取反
+
+# 3. 文件条件测试		结果
+# -d file				file是目录为真
+# -f file				file是文件为真
+# -r file				file可读为真
+# -w file				file可写为真
+# -x file				file可执行为真
+# -s file				file大小不为0为真
+# -u file				file set-uid位被设置为真
+# -g file				file set-gid位被设置为真
+
+if [ -f /bin/bash ]
+then
+	echo "file /bin/bash exists"
+fi
+
+if [ -d /bin/bash ]
+then
+	echo "/bin/bash is a directory"
+else
+	echo "/bin/bash is not a directory"
+fi
+
+exit 0

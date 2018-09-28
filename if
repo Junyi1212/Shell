@@ -1,0 +1,24 @@
+#!/bin/bash
+
+echo -n "Is it morning? Please answer yes or no: "
+#printf "Is it morning? Please answer yes or no: "
+# echo默认会在每一行最后添加一个换行符,
+# 想去掉换行符，移植性最好的方法是printf
+# 或者echo -n，只运行在bash上
+
+read timeofday
+
+#给变量$timeofday加上双引号，输入为空时，可以避免语法错误
+#有双引号：if [ "" = "yes" ]  语法正确
+#无双引号：if [  = "yes" ]	  语法错误
+if [ "$timeofday" = "yes" ]
+then
+  echo "Good morning"
+elif [ "$timeofday" = "no" ]; then
+  echo "Good afternoon"
+else
+  echo "Sorry, $timeofday not recognized. Enter yes or no"
+  exit 1
+fi
+
+exit 0 

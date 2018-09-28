@@ -1,0 +1,20 @@
+#!/bin/bash
+#运行./env-valiable foo bar baz
+
+echo "The path list used for searching command $PATH"
+echo "The user's home directory is $HOME"
+echo "The 1st prompt $PS1"
+echo "The 2nd prompt $PS2"
+echo "The input separator $IFS"
+echo "The program name is $0"
+echo "The parameter count is $#"
+echo "The program pid is $$"
+#$$脚本的进程号，通常会用来生成一个唯一的临时文件，如/tmp/tmpfile_$$
+echo "The first parameter was $1"
+echo "The second parameter was $2"
+echo "The parameter list was $*"
+#各个参数用IFS隔开
+echo "The parameter list was $@"
+#不受IFS影响，即便IFS为空，参数也不会挤在一起，一般用这个变量访问参数列表
+
+exit 0

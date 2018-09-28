@@ -1,0 +1,26 @@
+#!/bin/bash
+
+touch file_one
+rm -f file_two
+
+echo "AND List"
+#AND列表：只有在前面所有的命令都执行成功的情况下才执行后一条命令
+if [ -f file_one ] && echo "Hello" && [ -f file_two ] && echo "there"
+then
+	echo "in if"
+else
+	echo "in else"
+fi
+
+rm -f file_one
+echo "OR List"
+#OR列表：持续执行前面一系列命令直到有一条命令成功为止，其后的命令将不再执行
+if [ -f file_one ] || echo "hello" || echo "there"
+then
+	echo "in if"
+else
+	echo "in else"
+fi
+
+exit 0
+
